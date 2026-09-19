@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.maincon {
+    background-color: rgb(233, 166, 187);
+    width: 350px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgb(24, 26, 30);
+}
+
+
+/*LOGIN TITLE*/
+
+.loghead {
+    margin-bottom: 25px;
+}
+
+.loghead h1 {
+    font-size: 30px;
+}
+
+
+/*FORM*/
+
+.txtb form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/*LABEL*/
+
+.txtb label {
+    color: rgb(107, 122, 135);
+    margin-bottom: 5px;
+}
+
+
+/*TEXTBOX*/
+
+.txtb input[type="text"],
+.txtb input[type="password"] {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+
+/*BUTTON*/
+
+.txtb button {
+    background-color: rgb(152, 45, 81);
+    color: white;
+    border: none;
+    padding: 10px 35px;
+    border-radius: 5px;
+    margin-top: 5px;
+   
+}
+
+/* FORGOTPASSWORD and REGISTER */
+
+.new {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.new p {
+    margin-bottom: 10px;
+}
+
+.new a {
+    color: rgb(72, 87, 151);
+}
+
+.new a:hover {
+    color: rgb(72, 41, 135);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ebbad6;
+}
+
+
