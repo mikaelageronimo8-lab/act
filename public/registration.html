@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="card">
+    <h2>Create Account</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" id="submitBtn">Register</button>
+    </form>
+
+    <!-- Dito lalabas ang Status Message -->
+    <div id="statusMessage" class="status-msg"></div>
+
+    <p class="footer-text">Already have an account? <a href="index.html">Login here</a></p>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const statusMsg = document.getElementById('statusMessage');
+      const submitBtn = document.getElementById('submitBtn');
+
+      statusMsg.className = 'status-msg info';
+      statusMsg.innerText = 'Registering account...';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const result = await response.text();
+
+        if (response.ok) {
+          statusMsg.className = 'status-msg success';
+          statusMsg.innerText = 'Account successfully registered! You can now login.';
+          document.getElementById('registerForm').reset();
+        } else {
+          statusMsg.className = 'status-msg error';
+          statusMsg.innerText = result || 'Registration failed.';
+        }
+      } catch (err) {
+        statusMsg.className = 'status-msg error';
+        statusMsg.innerText = 'Connection error. Please try again.';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
